@@ -1,0 +1,579 @@
+@charset "utf-8";
+
+
+
+/* 初期スタイル調整 */
+/*Safari や Chrome のような WebKit または blink ベースのアプリケーションは、
+数多くの特殊な CSS の WebKit 拡張に対応しています。
+これらの拡張には一般に -webkit の接頭辞が付きます。/
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/* body全体の初期スタイル調整 */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Shippori Mincho', serif;
+  color: #111;
+  background-color: #eff9fd;
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  
+}
+
+/* 各要素の初期スタイル調整 */
+h1, h2, h3 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+
+/* a hyperelink*/
+
+a {
+  color: #032559;
+  text-decoration: none;
+}
+/* :hover 要素の上にマウスのポインタを要素の上に置いたときに実行されるクラス*/
+
+a:hover {
+  color: #032559;
+  text-decoration: underline;
+}
+/*「rem」とは、「root」+「em」という意味で、 
+root要素（html​要素）に対して相対的にフォントサイズが指定*/
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+ul {
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*figure 写真や図表、コードなどのまとまりとして扱うタグ*/
+
+figure {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+address {
+  font-style: normal;
+}
+/* ---------- 初期スタイル調整 ここまで ---------- */
+
+
+
+.header {
+    position: relative;
+    padding: 15px 0 0;
+    text-align: center;
+    width: auto;
+   
+}
+
+.header h1 {
+    text-align: center;
+    padding-bottom: 5px;
+    color: rgb(56, 94, 59);
+    
+}    
+
+.header p {
+    color: rgb(77, 77, 83);
+}
+
+.nav-toggle {
+    display: none;
+}
+
+
+.btn-burger {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 2;
+    display: block;
+    width: 44px;
+    height: 44px;
+    background: url("../img/burger.svg") center center / 35px 20px no-repeat;
+    cursor: pointer;
+
+  
+
+
+}
+
+.nav-toggle:checked ~ .btn-burger {
+    background: url("../img/close.svg") center center /26px 26pc no-repeat;
+
+}
+
+
+.nav-list {
+    display: none;
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+
+}
+
+
+
+.nav-list a {
+    display: block;
+    color:rgb(19, 10, 53);
+    text-decoration: none;
+
+
+}
+
+.menu {
+	color:#622954;
+}
+
+
+.nav-toggle:checked ~ .nav .nav-list {
+    display: block;
+}
+
+
+.nav-list :hover { 
+    color:#B19693;
+}
+    
+
+
+.section img{ 
+    max-width: 30%;
+    padding-top: 10px;
+
+}
+.section p {
+    color:#622954;
+    
+}    
+
+main {
+
+text-align: center; 
+}
+.photo-comment {
+padding-top: 40px;
+}
+
+
+
+.section-japanese {
+    
+    border-bottom: 1px solid rgb(19, 10, 53) ;
+    padding-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+}
+
+footer { 
+    background :white; 
+    text-align: center; 
+    padding: 26px 0; 
+    margin-top: 50px
+
+
+}
+
+
+footer p { 
+    color:rgb(77, 77, 83); 
+    font-size: 0.875rem;
+    text-align: right;
+    padding-right: 100px;
+
+
+}
+
+
+@media screen and (min-width: 768px) {
+    /* ヘッダー */
+    .header {
+      padding: 40px 0 0;
+
+      position: relative;
+        padding: 15px 0 0;
+        text-align: center;
+        width: auto;
+       
+    }
+    
+    .header h1 {
+        text-align: center;
+        padding-bottom: 5px;
+        color:#36563C;
+        
+    }    
+    
+    .header p {
+        color: rgb(77, 77, 83);
+    }
+  
+    /* ハンバーガーボタン */
+    .btn-burger {
+      display: none; /* 768px以上では使用しない */
+    }
+  
+    /* ナビゲーション */
+    .nav {
+      padding: 40px 0  0; 
+      
+    }
+  
+    .nav-list {
+      /* flexbox（横並びにする要素の親に指定） */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      /* フレックスアイテムを主軸方向（横方向）中央揃えで配置 */
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      /* フレックスアイテムを交差軸方向（縦方向）中央揃えで配置 */
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 0;
+      
+    }
+  
+    .nav-list li {
+      /* フレックスアイテムに対する指定 */
+      -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
+      padding: 0 20px;
+      line-height: 1;
+      border-right: 1px solid #fff; /* 縦棒を表示 */
+      
+    }
+  
+    .nav-list li:first-child {
+      border-left: 1px solid #fff; /* 縦棒を表示 */
+    }
+    /* 幅768px未満でメニューを開いた状態から、ウィンドウ幅を768px以上に広げたとき、メニューにflexboxを適用して<li>を横並び表示に切り替える */
+    .nav-toggle:checked ~ .nav .nav-list {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  
+    /* セクション */
+    .section {
+      margin-bottom: 100px;
+    }
+  
+    /* 見出し（h2） */
+    .heading-section {
+      margin-bottom: 50px;
+    }
+  
+    /* フッター */
+    .footer {
+      padding: 50px 0 20px;
+	  
+    }
+    .footer-sns {
+      margin: 30px 0;
+    }
+}
+
+.pages:hover {
+      color:#622954;
+	  
+
+}
+
+
+
+
+/* Blog Posts */
+
+.blog-posts {
+	margin-top: auto;
+	text-align: left;
+}
+
+
+
+.blog-posts .blog-post {
+	margin-bottom: 30px;
+}
+
+.blog-posts .blog-thumb {
+	width: 50%;
+
+	
+}
+
+.blog-thumb  {
+	margin: 40px auto ;
+}
+
+.blog-posts .down-content {
+	padding: 40px;
+	
+	border-bottom: 1px solid #eee;
+	
+}
+
+
+.blog-posts .down-content span {
+	font-size: 18px;
+	
+	letter-spacing: 0.5px;
+
+	color:rgb(19, 10, 53);
+}
+
+.blog-posts .down-content h4 {
+	font-size: 16px;
+	font-weight:bolder;
+	letter-spacing: 0.5px;
+	font-weight: 300;
+	color:#622954;
+	margin: 10px 0px 12px 0px;
+    
+
+}
+
+.blog-posts .down-content ul.post-info li {
+	display: inline-block;
+	margin-right: 8px;
+}
+/*li:after 最後のliは除く　content:要素の前後にボックスを配置したい時にcontenの
+値を空のまま記述*/
+
+.blog-posts .down-content ul.post-info li:after {
+	content: '|';
+	color: #aaa;
+	margin-left: 8px;
+}
+
+
+.grid-system .down-content ul.post-info li {
+	margin-right: 3px;
+}
+
+.grid-system .down-content ul.post-info li:after {
+	margin-left: 5px;
+}
+
+.blog-posts .down-content ul.post-info li:last-child::after {
+	display: none;
+}
+
+.blog-posts .down-content ul.post-info li a {
+	font-size: 14px;
+	color: #aaa;
+	font-weight: 400;
+	transition: all .3s;
+}
+
+.blog-posts .down-content ul.post-info li a:hover {
+	color:#20232e;
+}
+
+.blog-posts .down-content p {
+	padding: 25px 0px;
+	margin: 25px 0px;
+	
+	border-top: 1px solid #eee;
+	
+}
+
+
+
+
+.blog-posts .down-content ul.post-tags li,
+.blog-posts .down-content ul.post-share li {
+	display: inline-block;
+}
+
+.blog-posts .down-content ul.post-tags li:first-child i,
+.blog-posts .down-content ul.post-share li:first-child i {
+	color:#622954;
+	margin-right: 5px;
+}
+
+.blog-posts .down-content ul.post-tags li,
+.blog-posts .down-content ul.post-share li {
+	color: #aaa;
+}
+
+.blog-posts .down-content ul.post-tags li a,
+.blog-posts .down-content ul.post-share li a {
+	font-size: 14px;
+	color: #aaa;
+	font-weight: 400;
+	transition: all .3s;
+}
+
+.blog-posts .down-content ul.post-tags li a:hover,
+.blog-posts .down-content ul.post-share li a:hover {
+	color:#622954;
+}
+
+.blog-posts .main-button a {
+	height: 60px;
+	line-height: 60px;
+	padding: 0px;
+	width: 100%;
+	text-align: center;
+	
+}
+
+
+
+.blog-posts  {
+	margin-top: 60px;
+}
+
+.blog-posts .input {
+	width: 100%;
+	height: 46px;
+	border: 1px solid #eee;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #7a7a7a;
+	outline: none;
+	padding: 0px 15px;
+	margin-bottom: 30px;
+}
+
+.blog-posts textarea {
+	width: 100%;
+	height: 46px;
+	border: 1px solid #eee;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: 500;
+	color: #7a7a7a;
+	outline: none;
+	padding: 10px 15px;
+	margin-bottom: 30px;
+	height: 180px;
+	max-height: 220px;
+	max-width: 100%;
+	min-width: 160px;
+	padding-bottom: 1000px;
+}
+
+.blog-posts .input::placeholder,
+.blog-posts textarea::placeholder {
+	color: #aaa;
+}
+
+
+
+
+/* Sidebar */
+
+
+
+.sidebar .sidebar-item {
+	margin-top: 50px;
+}
+
+.sidebar .search {
+	margin-top: 0px;
+}
+
+
+.sidebar .search input {
+	width: 100%;
+	height: 50px;
+	border: 1px solid #eee;
+	font-size: 13px;
+	
+	
+	color:#20232e;
+	outline: none;
+	padding: 0px 15px;
+}
+
+.sidebar .search input::placeholder {
+	color: #aaa;
+}
+
+
+.sidebar .categories ul li {
+	margin-bottom: 15px;
+}
+
+.sidebar .categories ul li:last-child {
+	margin-bottom: 0px;
+}
+
+.sidebar .categories ul li a {
+	font-size: 15px;
+	font-weight: 700;
+	color: #20232e;
+	transition: all .3s;
+}
+
+.sidebar .categories ul li a:hover {
+	color: #622954;
+}
+
+.sidebar .tags ul li {
+	margin-right: 6px;
+	display: inline-block;
+}
+
+.sidebar .tags ul li {
+	margin-bottom: 10px;
+}
+
+.sidebar .tags ul li a {
+	font-size: 15px;
+	font-weight: 500;
+	color: #aaa;
+	display: inline-block;
+	border: 1px solid #eee;
+	padding: 10px 18px;
+	transition: all .3s;
+}
+
+.sidebar .tags ul li a:hover {
+	background-color:#aaa;
+	border-color: #aaa;
+	color: #fff;
+}
+
+
+/* Footer */
+
+footer {
+	border-top: 1px solid rgb(19, 10, 53);
+	margin-top: 100px;
+	text-align: center;
+	background-color: #eff9fd;
+	padding: 60px 0px;
+}
+
+
+
+.myself-comment {
+  text-align: left;
+}
+
